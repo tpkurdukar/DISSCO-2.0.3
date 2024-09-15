@@ -220,6 +220,7 @@ void Piece::Print() {
 
 
 Piece::Piece(string _workingPath, string _projectTitle){
+  cerr << "working path:" << _workingPath << endl;
   for(int i = 0; i < 1; i++){
 
   path = _workingPath;
@@ -232,9 +233,12 @@ Piece::Piece(string _workingPath, string _projectTitle){
   XercesDOMParser* parser = new XercesDOMParser();
   string disscoFile = _projectTitle+ ".dissco";
   parser->parse(disscoFile.c_str());
-
+  cerr << "just to debug and see if the problem " << endl;
   //get the parsed DOM Document and read the configuration
   DOMDocument* xmlDocument = parser->getDocument();
+    if (xmlDocument == NULL){
+    cerr << "Somehow xmlDocument is null "<<endl;
+  }
   DOMElement* root = xmlDocument->getDocumentElement();
   DOMElement* configurations = root->GFEC();
   DOMElement* element = configurations->GFEC();

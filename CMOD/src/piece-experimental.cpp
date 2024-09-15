@@ -35,6 +35,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "Utilities.h"
 #include <fstream>
 
+/**
+
 //----------------------------------------------------------------------------//
 
 int PieceHelper::getDirectoryList(string dir, vector<string> &files) {
@@ -346,7 +348,7 @@ Piece::Piece(string _workingPath, string _projectTitle){
   if (scorePrinting) {
     cout << "Piece::Piece: " << "Score output " << endl;
 
-		/* for score file */
+		/* for score file 
 
      // output score to lilypond file
      //output_score(projectName);
@@ -530,12 +532,12 @@ int sever; cin >> sever;
 
 		if (utilities->evaluate(XMLTC(continuumFlagElement), NULL)==0) { //Hertz
 		   mVal += HZ * (log(1 / HZ)/log(2));
-		  /* 3rd arg is a float (baseFreq in Hz) */
+		  /* 3rd arg is a float (baseFreq in Hz) 
 		}
 
 		else  {
 		   mVal += POW2 * (log(1 / POW2)/log(2));
-		  /* 3rd arg is a float (power of 2) */
+		  /* 3rd arg is a float (power of 2) 
 		  float step = utilities->evaluate(XMLTC(freqEntry1), (void*)this);
 		  double range = log10(CEILING / MINFREQ) / log10(2.); // change log base
 		  double baseFreqResult = pow(2, step * range) * MINFREQ;  // equal chance for all 8vs
@@ -547,7 +549,7 @@ int sever; cin >> sever;
 	      utilities->eventValues.erase(name);
 	      newEntropy = (currentEntropy + entropy); // Mean of ratios
 	      utilities->eventValues.insert(std::pair<string, double> (name, newEntropy));
-	      //cout<<"Entropy Ratio:"<<entropy<<endl;*/
+	      //cout<<"Entropy Ratio:"<<entropy<<endl;
 
 	      printf("%f\n", mVal);
 
@@ -752,7 +754,7 @@ void Piece::crossoverMutation(DOMElement* parent1, DOMElement* parent2, DOMEleme
   frequencyFlagElement = parentFrequencyElement->GFEC();
   flagNum = XMLTC(frequencyFlagElement);
   flagVal = atoi(flagNum.c_str());
-  cout<<flagVal<<"\t";*/
+  cout<<flagVal<<"\t";
 
   extraInfo2->replaceChild(clone, extraInfo2->GFEC());
 
@@ -761,7 +763,7 @@ void Piece::crossoverMutation(DOMElement* parent1, DOMElement* parent2, DOMEleme
   frequencyFlagElement = childFrequencyElement->GFEC();
   flagNum = XMLTC(frequencyFlagElement);
   flagVal = atoi(flagNum.c_str());
-  cout<<flagVal<<"\t";*/
+  cout<<flagVal<<"\t";
 
   int loudParent = Random::RandInt(0, 1);
   extraInfoString = XMLString::transcode("ExtraInfo");
@@ -953,12 +955,12 @@ vector<DOMElement*> Piece::modifyPiece(DOMElement* eventElement){
 
       //cout<<childName<<"!!!!!!!!!!!!!!!!!!!!!!"<<endl;
 
-  }*/
+  }
 
    return childElements;
  }
 
- /*//Modifying Spectrum Class (Spectrum event has diff layout than others)
+ //Modifying Spectrum Class (Spectrum event has diff layout than others)
  else if(type == 5){
    thisEventElement = thisEventElement->GNES(); //Num Partials
    DOMElement* deviationElement = thisEventElement->GNES(); //Deviation
@@ -984,7 +986,7 @@ vector<DOMElement*> Piece::modifyPiece(DOMElement* eventElement){
  }
 
  return childElements;
-}*/
+}
 //}
 
 //Experimental
@@ -1203,7 +1205,7 @@ void Piece::functionModifier(DOMElement* functionElement, int maxValue){ //Needs
 
   }
 }
-
+/**
   vector<DOMElement*> Piece::calculateAesthetic(DOMElement* eventElement){
 
     vector<DOMElement*> childElements;
@@ -1253,7 +1255,7 @@ void Piece::functionModifier(DOMElement* functionElement, int maxValue){ //Needs
         int startFlagVal = atoi(startFlag.c_str());
 
 
-        /*//Calculating Duration entropy
+        //Calculating Duration entropy
 
         samples.clear();
         string durationFlag = XMLTC(childDurationTypeFlag);
@@ -1287,7 +1289,7 @@ void Piece::functionModifier(DOMElement* functionElement, int maxValue){ //Needs
         utilities->eventValues.erase(name);
         newEntropy = (currentEntropy + entropy)/2.0; // Mean of ratios
         utilities->eventValues.insert(std::pair<string, double> (name, newEntropy));
-        //cout<<"Entropy Ratio:"<<entropy<<endl;*/
+        //cout<<"Entropy Ratio:"<<entropy<<endl;
 
       //layers, initialize child names
       thisEventElement = childEventDefElement->GNES();
@@ -1379,10 +1381,10 @@ void Piece::functionModifier(DOMElement* functionElement, int maxValue){ //Needs
         for(int i = 0; i < NUM_SAMPLES; i++){
         if (utilities->evaluate(XMLTC(continuumFlagElement), NULL)==0) { //Hertz
           samples.push_back(utilities->evaluate(XMLTC(freqEntry1), (void*)this));
-          /* 3rd arg is a float (baseFreq in Hz) */
+          /* 3rd arg is a float (baseFreq in Hz) 
         }
         else  {
-          /* 3rd arg is a float (power of 2) */
+          /* 3rd arg is a float (power of 2) 
           float step = utilities->evaluate(XMLTC(freqEntry1), (void*)this);
           double range = log10(CEILING / MINFREQ) / log10(2.); // change log base
           double baseFreqResult = pow(2, step * range) * MINFREQ;  // equal chance for all 8vs
@@ -1488,3 +1490,4 @@ void Piece::functionModifier(DOMElement* functionElement, int maxValue){ //Needs
 
   return redundancy;
   }
+**/
